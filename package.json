@@ -1,0 +1,33 @@
+{
+  "name": "d3-bihisankey",
+  "version": "0.0.1",
+  "description": "Bi-directional hierarchy sankey graph plugin for D3\nOriginal: https://github.com/Neilos/bihisankey",
+  "keywords": [
+    "d3",
+    "d3-module"
+  ],
+  "license": "MIT",
+  "main": "build/d3-bihisankey.js",
+  "jsnext:main": "index",
+  "homepage": "https://github.com/hyperthreading/d3-bihisankey",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperthreading/d3-bihisankey.git"
+  },
+  "scripts": {
+    "pretest": "rm -rf build && mkdir build && rollup -f umd -n d3 -o build/d3-bihisankey.js -- index.js",
+    "test": "tape 'test/**/*-test.js'",
+    "prepublish": "uglifyjs build/d3-bihisankey.js -c -m -o build/d3-bihisankey.min.js",
+    "postpublish": "zip -j build/d3-bihisankey.zip -- LICENSE README.md build/d3-bihisankey.js build/d3-bihisankey.min.js"
+  },
+  "devDependencies": {
+    "rollup": "0.27",
+    "tape": "4",
+    "uglify-js": "2"
+  },
+  "dependencies": {
+    "d3-array": "^1.2.1",
+    "d3-collection": "^1.0.4",
+    "d3-interpolate": "^1.2.0"
+  }
+}
